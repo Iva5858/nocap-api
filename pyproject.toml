@@ -1,0 +1,34 @@
+[project]
+name = "veritas_fact_check_api"
+version = "0.1.0"
+description = "veritas-fact-check-api using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.8,<3.13"
+dependencies = [
+    "crewai>=0.1.7",
+    "langchain-community>=0.0.10",
+    "pyyaml>=6.0.1",
+    "wikipedia>=1.4.0",
+    "openai<0.29.0,>=0.28.1",
+    "pydantic<3.0.0,>=2.0.0",
+    "typing-extensions>=4.5.0",
+    "python-dotenv>=1.0.0",
+    "flask>=3.0.0",
+    "duckduckgo-search>=4.1.1",
+    "requests>=2.31.0"
+]
+
+[project.scripts]
+veritas_fact_check_api = "veritas_fact_check_api.main:run"
+run_crew = "veritas_fact_check_api.main:run"
+train = "veritas_fact_check_api.main:train"
+replay = "veritas_fact_check_api.main:replay"
+test = "veritas_fact_check_api.main:test"
+api = "veritas_fact_check_api.api:app.run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

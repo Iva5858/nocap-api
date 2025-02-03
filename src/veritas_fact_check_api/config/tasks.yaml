@@ -1,0 +1,53 @@
+verify_content:
+  description: >
+    Fact check the Instagram post from user {username} with content: "{description}"
+    Post URL: {post_url}
+    
+    Search for and verify the claims using reputable sources.
+    For each finding, specify the source name and date (e.g., "According to Reuters (Jan 2024)")
+    Focus on recent, authoritative sources.
+  expected_output: >
+    A verification report with properly cited sources
+  agent: fact_checker
+
+create_analysis_report:
+  description: >
+    Using the fact-checking results, create a VERY CONCISE analysis report (maximum 850 characters) that includes:
+    1. One-sentence summary of the main claim
+    2. Brief verification result with key evidence only
+    3. Source citations (e.g., "Based on data from WHO (2024)", "According to Reuters (Jan 2024)")
+    4. Bias score (Very biased/Moderately biased/Moderately objective/Very objective)
+    5. Reliability score (1-10)
+
+    IMPORTANT: 
+    - The entire response MUST be under 850 characters
+    - Cite sources by name and date
+    - Be specific about where information comes from
+    - Focus on authoritative sources (government agencies, major news outlets, academic institutions)
+  expected_output: >
+    A response strictly following this format (under 850 characters total):
+
+    "Claim: [one-sentence summary]
+
+    Verification: [2-3 sentences max with source citations]
+
+    Bias score: [score]
+    Reliability: [X]/10
+
+    Sources:
+    - [Organization name] ([date])
+    - [Organization name] ([date])"
+  agent: analysis_writer
+
+validate_format:
+  description: >
+    Review the fact-check report and ensure it meets the following requirements:
+    1. Maximum length: 850 characters
+    2. Must have supporting evidence
+    3. Must include at least 3 relevant article links
+    4. Must be properly formatted 
+    
+    If any requirements are not met, provide specific feedback for revision.
+  expected_output: >
+    Either approval of the format or specific revision requests
+  agent: format_checker
