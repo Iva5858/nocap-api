@@ -13,7 +13,6 @@ dependencies = [
     "pydantic<3.0.0,>=2.0.0",
     "typing-extensions>=4.5.0",
     "python-dotenv>=1.0.0",
-    "flask>=3.0.0",
     "duckduckgo-search>=4.1.1",
     "requests>=2.31.0"
 ]
@@ -24,7 +23,6 @@ run_crew = "veritas_fact_check_api.main:run"
 train = "veritas_fact_check_api.main:train"
 replay = "veritas_fact_check_api.main:replay"
 test = "veritas_fact_check_api.main:test"
-api = "veritas_fact_check_api.api:app.run"
 
 [build-system]
 requires = ["hatchling"]

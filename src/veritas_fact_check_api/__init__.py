@@ -1,3 +1,1 @@
-from .api import app
-
-__all__ = ['app']
+# Empty file or can be removed if not needed
