@@ -3,6 +3,10 @@ from .crew import InstagramFactCheckCrew
 
 app = Flask(__name__)
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "healthy"}), 200
+
 @app.route('/fact-check', methods=['POST'])
 def fact_check():
     try:
@@ -31,4 +35,4 @@ def fact_check():
         }), 500
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(host='0.0.0.0', port=3000) 
